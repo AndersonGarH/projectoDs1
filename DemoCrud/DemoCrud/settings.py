@@ -42,13 +42,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'psycopg2',
+    'corsheaders',
     'Demo_crud'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,18 +82,26 @@ WSGI_APPLICATION = 'DemoCrud.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# Presenta problemas para abrir la informacion no logea correctamente el .env
+""" NAME= os.getenv("NAME")
+ENGINE= os.getenv("ENGINE")
+USER= os.getenv("USER")
+PASSWORD= os.getenv("PASSWORD")
+HOST= os.getenv("HOST")
+PORT= os.getenv("PORT")
 
-""" DATABASES = {
+DATABASES = {
     'default': {
-        'ENGINE': str(os.getenv('ENGINE')),
-        'NAME': str(os.getenv('NAME')),
-        'USER': str(os.getenv('USER')),
-        'PASSWORD': str(os.getenv('PASSWORD')),
-        'HOST': str(os.getenv('HOST')),
-        'PORT': str(os.getenv('PORT')),
-    }
-} """
+        'ENGINE': ENGINE,
+        'NAME': NAME,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
+        'HOST': HOST,
+        'PORT': PORT,
+        }
+}  """  
 
+#funciona pero es altamente inseguro, *VULNERABILIDAD*
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

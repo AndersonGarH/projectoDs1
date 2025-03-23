@@ -7,15 +7,16 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
  
         user = self.model(
-        email=self.normalize_email(email),
-        name=name,
-        phone=phone,
-        is_boss=is_boss
-        )
+            email=self.normalize_email(email),
+            name=name,
+            phone=phone,
+            is_boss=is_boss
+            )   
  
         user.set_password(password)
         user.save(using=self._db)
         return user
+    
 class User(AbstractBaseUser):
     # Campos personalizados y pendientes de modificar segun nuestro scheme
     is_boss = models.BooleanField(default=False)
