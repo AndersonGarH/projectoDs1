@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'psycopg2',
-    'DemoCrud'
+    'Demo_crud'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'DemoCrud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': str(os.getenv('ENGINE')),
         'NAME': str(os.getenv('NAME')),
@@ -88,6 +88,17 @@ DATABASES = {
         'PASSWORD': str(os.getenv('PASSWORD')),
         'HOST': str(os.getenv('HOST')),
         'PORT': str(os.getenv('PORT')),
+    }
+} """
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.yahndziqwjjmmeclypws',
+        'PASSWORD': 'CnwkZ2WQ7N384kny',
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com',
+        'PORT': '5432'
     }
 }
 
