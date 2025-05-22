@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+#incluir aplicacion instalada oauth2
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +46,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'psycopg2',
     'corsheaders',
-    'Demo_crud'
+    'Demo_crud',
+    'oauth2_provider'
+
 ]
 
 MIDDLEWARE = [
